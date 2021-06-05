@@ -4,9 +4,8 @@ const cors = require('cors')
 const blogRouter = require('./controllers/blogRouter')
 const middleware = require('./utils/middleware')
 
-
-app.use(cors())
 app.use(express.static('build'))
+app.use(cors())
 app.use(express.json())
 
 app.use('/api/blogs',blogRouter)
