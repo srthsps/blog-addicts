@@ -1,0 +1,22 @@
+{
+  "name": "blogapp",
+  "version": "1.0.0",
+  "description": "An application where you can save your favourite blogs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "author": "sarathsps",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "devmon": "0.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
