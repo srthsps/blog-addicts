@@ -2,6 +2,8 @@ const config = require('../utils/config')
 const blogRouter = require('express').Router()
 const mongoose = require('mongoose')
 const Blog = require('../models/blog')
+const User = require('../models/users')
+const { request, response } = require('express')
 
 
 
@@ -15,21 +17,36 @@ mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true, us
   
   blogRouter.get('/', (request, response) => {
     Blog
-      .find({})
+      .find({}).populate('user')
       .then(blogs => {
         response.json(blogs)
       })
   })
   
-  blogRouter.post('/', (request, response) => {
+  blogRouter.post('/', async(request, response) => {
+
+    const body = request.body
+    const user = await User.findById(body.userId)
   
-    const blog = new Blog(request.body)
-  
-    blog
-      .save()
-      .then(result => {
-        response.status(201).json(result)
-      })
+    const blog = new Blog({
+      title:body.title,
+      author:body.author,
+      url:body.url.Blog,
+      user:user._id
+    })
+    
+    const savedBlog = await blog.save()
+    console.log(savedBlog);
+    user.blogs = user.blogs.concat(savedBlog._id)
+    await   user.save()
   })
+
+  blogRouter.delete('/',(request,response)=>{
+    const id=request.body
+    Blog.findByIdAndRemove(id.blogId).then(res=>{
+      response.send("Removed succesfully").end()
+    })
+  })
+
 
   module.exports = blogRouter
