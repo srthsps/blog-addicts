@@ -1,38 +1,94 @@
 .App {
-  text-align: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input {
+    width: 500px;
+    height: 20px;
+    margin-top: 9px;
+    padding: 10px;
+    border-radius: 25px;
+    resize: vertical;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input:focus{
+    outline: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.addButton {
+    width: 210px;
+    height: 35px;
+    font-size: 24px;
+    margin-top: 25px;
+    padding: 0px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: rgb(0, 0, 0);
+    background-color: #a8a8a8;
+    border:black;
+    border-radius: 15px;
+    box-shadow: 0 5px rgb(102, 102, 102);
 }
 
-.App-link {
-  color: #61dafb;
+.addButton:hover {
+    background-color: #444444
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.addButton:active {
+    background-color: #474747;
+    box-shadow: 0 5px rgb(187, 187, 187);
+    transform: translateY(4px);
+}
+
+.blogOutput {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    flex-grow: 100;
+}
+
+.blogElement {
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    flex-basis: 30%;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 2px rgb(102, 102, 102);
+}
+
+.blogElement:hover{
+    background-color: #474747;
+    box-shadow: 0 5px rgb(187, 187, 187);
+    transform: translateY(4px);
+}
+
+.blogTitle {
+    font-weight: bold;
+}
+
+.buttonDiv{
+    background-color: transparent;
+    width: 100px;
+    
+}
+.deleteBtn{
+    background-color: rgb(83, 81, 81);
+    border-radius: 15px;
+    color: aliceblue;
+}
+
+.deleteBtn:hover{
+    background-color: #a8a8a8;
+    border-radius: 15px;
+}
+.deleteBtn:active{
+    transform: translateY(1);
 }
